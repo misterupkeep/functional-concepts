@@ -1,5 +1,5 @@
 include_dir = ./include
-headers = $(wildcard $(include_dir)/*.hpp) $(wildcard $(include_dir)/functional/*.hpp)
+headers = $(wildcard $(include_dir)/*.hpp) $(wildcard $(include_dir)/functional/*.hpp) $(wildcard $(include_dir)/functional/**/*.hpp)
 files = test
 
 CPP_FLAGS = -std=c++2a -fconcepts-diagnostics-depth=5 -Iinclude
