@@ -19,7 +19,7 @@ add_two(F functor)
 int
 main()
 {
-	static_assert(is_fmappable<std::vector<int>>::value, "vector is_fmappable");
+	static_assert(is_functor<std::vector<int>>::value, "vector is_fmappable");
 
 	static_assert(
 		std::is_same<

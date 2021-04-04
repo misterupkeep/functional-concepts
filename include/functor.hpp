@@ -45,7 +45,7 @@ template<typename...> struct always_false { static constexpr auto value = false;
  *  is checking if the return isn't volatile.
  *
  * Guarding whether or not a type can be fmap'd are the concept #Functor and
- *  #is_fmappable. However, you might still call fmap(). This is why the body has
+ *  #is_functor. However, you might still call fmap(). This is why the body has
  *  a static_assert that will always fail with a diagnostic message.
  *
  * Since the non-overloaded function will get instantiated only when it is
@@ -78,9 +78,9 @@ concept Functor = requires(F f) {
  * failing a type check
  **/
 template<typename F>
-struct is_fmappable {
+struct is_functor {
 	static constexpr bool value = !std::is_volatile_v<decltype(fmap(id, std::declval<F>()))>;
 };
 
 template<typename F>
-constexpr auto is_fmappable_v = is_fmappable<F>::value;
+constexpr auto is_functor_v = is_functor<F>::value;
